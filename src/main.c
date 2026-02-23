@@ -22,14 +22,15 @@ int main(int argc, char **argv) {
     };
 
     int opt;
-    while ((opt = getopt_long(argc, argv, "e:m:M:sic", long_options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "e:m:M:s:ic", long_options, NULL)) != -1) {
         switch (opt) {
             case 'e': engine_name = optarg; break;
             case 'm': min = atoi(optarg);   break;
             case 'M': max = atoi(optarg);   break;
+            case 's': seed = atoi(optarg);  break;
             case 'i': info_flag = 1;        break;
             case 'c': chaos_flag = 1;       break;
-            default: 
+            default:
                 fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-i] [-c]\n", argv[0]);
                 return 1;
         }
