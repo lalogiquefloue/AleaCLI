@@ -12,6 +12,12 @@ $(TARGET): $(SRCS)
 	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
 
+debug: $(TARGET)
+	gdb ./$(TARGET)
+
+check: $(TARGET)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(TARGET) $(ARGS)
+
 run: $(TARGET)
 	./$(TARGET) $(ARGS)
 
