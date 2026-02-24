@@ -68,7 +68,8 @@ int main(int argc, char **argv) {
     selected->setup(seed);
     for (int i = 0; i < count; i++) {
         int val = selected->generate();
-        printf("%d\t", val);
+        val = min + (val % (max - min + 1));
+        printf("%d\n", val);
     }
 
     // parsed commands debugging
