@@ -46,13 +46,20 @@ int main(int argc, char **argv) {
         seed = time(NULL); // sets seed to current time
     }
 
-    // find engine./
     Engine *selected = NULL;
 
-    for (int i = 0; i < ENGINE_COUNT; i++) {
-        if (strcmp(engine_name, engines[i].name) == 0) {
-            selected = &engines[i];
-            break;
+    if (chaos_flag) {
+        // choose a random engine
+        srand(seed);
+        int random_idx = rand() % ENGINE_COUNT;
+        selected = &engines[random_idx];
+    } else {
+        // find desired engine
+        for (int i = 0; i < ENGINE_COUNT; i++) {
+            if (strcmp(engine_name, engines[i].name) == 0) {
+                selected = &engines[i];
+                break;
+            }
         }
     }
 
