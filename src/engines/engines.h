@@ -13,6 +13,10 @@ typedef struct {
     seed_func_t setup;
 } Engine;
 
+// default C RNG
+void default_rand_setup(uint32_t seed);
+uint32_t default_rand_run(void);
+
 // implemented engines definitions
 void mock_engine_1_setup(uint32_t seed);
 uint32_t mock_engine_1(void);

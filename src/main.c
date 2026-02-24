@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv) {
 
-    char *engine_name = "test_engine";
+    char *engine_name = "default";
     int min = 0;
     int max = 100;
     int seed = 0;
@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
         seed = time(NULL); // sets seed to current time
     }
 
-    // find engine
+    // find engine./
     Engine *selected = NULL;
 
     for (int i = 0; i < ENGINE_COUNT; i++) {
