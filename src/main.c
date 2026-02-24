@@ -35,9 +35,9 @@ int main(int argc, char **argv) {
             case 's': seed = atoi(optarg);  break;
             case 'n': count = atoi(optarg); break;
             case 'c': chaos_flag = 1;       break;
-            case 'i': info_flag = 1;        break;
+            // case 'i': info_flag = 1;        break; // TODO
             default:
-                fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-n count] [-i] [-c]\n", argv[0]);
+                fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-n count] [-c]\n", argv[0]);
                 return 1;
         }
     }
