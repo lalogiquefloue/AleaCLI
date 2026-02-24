@@ -8,6 +8,7 @@ int main(int argc, char **argv) {
     int min = 0;
     int max = 100;
     int seed = 0;
+    int count = 1;
     int info_flag = 0;
     int chaos_flag = 0;
 
@@ -16,24 +17,30 @@ int main(int argc, char **argv) {
         {"min",    required_argument, 0, 'm'},
         {"max",    required_argument, 0, 'M'},
         {"seed",   required_argument, 0, 's'},
-        {"info",   no_argument,       0, 'i'},
+        {"count",  required_argument, 0, 'n'},
         {"chaos",  no_argument,       0, 'c'},
+        {"info",   no_argument,       0, 'i'},
         {0, 0, 0, 0}
     };
 
     int opt;
-    while ((opt = getopt_long(argc, argv, "e:m:M:s:ic", long_options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "e:m:M:s:n:ci", long_options, NULL)) != -1) {
         switch (opt) {
             case 'e': engine_name = optarg; break;
             case 'm': min = atoi(optarg);   break;
             case 'M': max = atoi(optarg);   break;
             case 's': seed = atoi(optarg);  break;
-            case 'i': info_flag = 1;        break;
+            case 'n': count = atoi(optarg); break;
             case 'c': chaos_flag = 1;       break;
+            case 'i': info_flag = 1;        break;
             default:
-                fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-i] [-c]\n", argv[0]);
+                fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-n count] [-i] [-c]\n", argv[0]);
                 return 1;
         }
+    }
+
+    for (int i = 0; i < count; i++) {
+        // TODO: generate results from selected engine
     }
 
     printf("--- AleaCLI current parsed config ---\n");
