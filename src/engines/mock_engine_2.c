@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "engines.h"
 
-static uint32_t mock_engine_1_state = 1;
+static uint32_t mock_engine_2_state = 1;
 
 void mock_engine_2_setup(uint32_t seed) {
     mock_engine_2_state = seed;
