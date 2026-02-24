@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
+#include <time.h>
 
 int main(int argc, char **argv) {
 
@@ -37,6 +38,10 @@ int main(int argc, char **argv) {
                 fprintf(stderr, "Usage: %s [-e engine] [-m min] [-M max] [-s seed] [-n count] [-i] [-c]\n", argv[0]);
                 return 1;
         }
+    }
+
+    if (!seed){
+        seed = time(NULL); // sets seed to current time
     }
 
     for (int i = 0; i < count; i++) {
