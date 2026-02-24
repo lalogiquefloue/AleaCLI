@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
+#include <string.h>
 #include <time.h>
+#include "engines/engines.h"
 
 int main(int argc, char **argv) {
 
@@ -44,17 +46,39 @@ int main(int argc, char **argv) {
         seed = time(NULL); // sets seed to current time
     }
 
-    for (int i = 0; i < count; i++) {
-        // TODO: generate results from selected engine
+    // find engine
+    Engine *selected = NULL;
+
+    for (int i = 0; i < ENGINE_COUNT; i++) {
+        if (strcmp(engine_name, engines[i].name) == 0) {
+            selected = &engines[i];
+            break;
+        }
     }
 
-    printf("--- AleaCLI current parsed config ---\n");
-    printf("Chosen engine : %s\n", engine_name);
-    printf("Range         : [%d, %d]\n", min, max);
-    printf("Seed          : %d\n", seed);
-    printf("Info          : %s\n", info_flag ? "Yes" : "No");
-    printf("Chaos Mode    : %s\n", chaos_flag ? "On" : "Off");
-    printf("-------------------------------------\n");
+    if (selected == NULL) {
+        fprintf(stderr, "Error: Engine '%s' not found.\n", engine_name);
+        fprintf(stderr, "Available engines:\n");
+        for (int i = 0; i < ENGINE_COUNT; i++) {
+            fprintf(stderr, " - %s: %s\n", engines[i].name, engines[i].info);
+        }
+        return 1;
+    }
+
+    selected->setup(seed);
+    for (int i = 0; i < count; i++) {
+        int val = selected->generate();
+        printf("%d\t", val);
+    }
+
+    // parsed commands debugging
+    // printf("--- AleaCLI current parsed config ---\n");
+    // printf("Chosen engine : %s\n", engine_name);
+    // printf("Range         : [%d, %d]\n", min, max);
+    // printf("Seed          : %d\n", seed);
+    // printf("Info          : %s\n", info_flag ? "Yes" : "No");
+    // printf("Chaos Mode    : %s\n", chaos_flag ? "On" : "Off");
+    // printf("-------------------------------------\n");
 
     return 0;
 }
