@@ -6,7 +6,7 @@ OBJ_DIR = obj
 
 SRCS   = $(shell find $(SRC_DIR) -name '*.c')
 OBJS   = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-TARGET = $(BIN_DIR)/alea_cli
+TARGET = $(BIN_DIR)/alea
 
 all: $(TARGET)
 

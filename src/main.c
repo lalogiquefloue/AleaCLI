@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    if (!seed){
+    if (!seed || seed == 0){
         seed = time(NULL); // sets seed to current time
     }
 
@@ -74,8 +74,8 @@ int main(int argc, char **argv) {
 
     selected->setup(seed);
     for (int i = 0; i < count; i++) {
-        int val = selected->generate();
-        val = min + (val % (max - min + 1));
+        uint32_t raw_val = selected->generate();
+        int val = min + (raw_val % (max - min + 1));
         printf("%d\n", val);
     }
 
