@@ -18,11 +18,8 @@ void default_rand_setup(uint32_t seed);
 uint32_t default_rand_run(void);
 
 // implemented engines definitions
-void mock_engine_1_setup(uint32_t seed);
-uint32_t mock_engine_1(void);
-
-void mock_engine_2_setup(uint32_t seed);
-uint32_t mock_engine_2(void);
+void xor_shift_setup(uint32_t seed);
+uint32_t xor_shift(void);
 
 extern Engine engines[];
 extern const int ENGINE_COUNT;
