@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    if (!seed){
+    if (!seed || seed == 0){
         seed = time(NULL); // sets seed to current time
     }
 
