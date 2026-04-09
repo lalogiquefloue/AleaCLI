@@ -25,7 +25,7 @@ Example usage:
 | `-M` | `--max` | Maximum value | `100` |
 | `-n` | `--count` | Number of outputs | `1` |
 | `-s` | `--seed` | Manual seed for reproducibility | `random` |
-| `-c` | `--chaos` | **Chaos Mode:** Randomly picks an engine | `off` |
+| `-c` | `--chaos` | Chaos Mode: Randomly picks an engine | `off` |
 
 ```
 alea [-e engine_name] [-m min] [-M max] [-s seed] [-n count] [-c]
@@ -39,3 +39,9 @@ alea [-e engine_name] [-m min] [-M max] [-s seed] [-n count] [-c]
 | xorshift | 32 bit Xorshift algorithm |
 
 More to come..!
+
+## REFERENCES
+
+### Xorshift
+- https://en.wikipedia.org/wiki/Xorshift
+- https://www.jstatsoft.org/article/view/v008i14
