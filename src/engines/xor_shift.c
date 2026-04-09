@@ -7,7 +7,7 @@ void xor_shift_setup(uint32_t seed) {
     x = seed;
 }
 
-uint32_t xor_shift(void) {
+uint32_t xor_shift_run(void) {
     
     x ^= x << 13;
     x ^= x >> 17;
