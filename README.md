@@ -40,8 +40,16 @@ alea [-e engine_name] [-m min] [-M max] [-s seed] [-n count] [-c]
 
 More to come..!
 
-## REFERENCES
+## References and research material
+
+### General
+
+- https://en.wikipedia.org/wiki/List_of_random_number_generators
+- D. E. Knuth, “Chapter 3 - Random Numbers,” in The art of computer programming. Volume 2: Seminumerical algorithms, Third edition, Forthy-First printing., Boston: Addison-Wesley, 2021, pp. 1–193.
+- W. H. Press, Ed., “Chapter 7 - Random Numbers,” in Numerical recipes: the art of scientific computing, 3. ed., Cambridge: Cambridge University Press, 2007, pp. 340–418.
+
 
 ### Xorshift
+
 - https://en.wikipedia.org/wiki/Xorshift
-- https://www.jstatsoft.org/article/view/v008i14
+- G. Marsaglia, “Xorshift RNGs,” Journal of Statistical Software, vol. 8, pp. 1–6, Jul. 2003, doi: 10.18637/jss.v008.i14.
